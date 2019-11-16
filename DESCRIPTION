@@ -1,0 +1,20 @@
+Package: rmdstyle
+Type: Package
+Title: Rmarkdown templates.
+Version: 1.0
+Author: Roy Francis
+Maintainer: The package maintainer <roy.francis@nbis.se>
+Description: Rmarkdown templates.
+URL: https://github.com/royfrancis/rmdstyle
+Depends:
+    R(>= 3.5.0),
+    bookdown,
+    captioner,
+    markdown,
+    knitr,
+    rmarkdown,
+    xaringan
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
