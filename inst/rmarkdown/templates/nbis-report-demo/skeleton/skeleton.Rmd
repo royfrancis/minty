@@ -1,87 +1,25 @@
 ---
+title: "NBIS Report"
+subtitle: '`r format(Sys.Date(),format="%d-%b-%Y")`'
 output:
   bookdown::html_document2:
-          toc: true
-          toc_float: true
-          toc_depth: 4
-          number_sections: true
-          theme: flatly
-          highlight: tango
-          df_print: paged
-          code_folding: "none"
-          self_contained: true
-          keep_md: false
-          encoding: 'UTF-8'
-          css: "assets/report.css"
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+      print: false
+    toc_depth: 4
+    number_sections: true
+    highlight: tango
+    df_print: paged
+    code_folding: "none"
+    self_contained: true
+    keep_md: false
+    encoding: 'UTF-8'
+    css: "assets/report.css"
 ---
 
-```{r,include=FALSE,cache=FALSE,eval=TRUE}
-## REPORT OPTIONS
-## code relating to the report creation
-## default working directory is the location of this document
-## all code is run in the working directory as the root
-
-# remove all variables
-rm(list=ls())
-
-# load libraries for document creation
-library(knitr) # runs pandoc
-library(bookdown) # for markdown
-library(captioner) # for table and figure captions
-#library(extrafont) # for fonts in plots
-
-# prepare captions
-tc <- captioner::captioner(prefix="<b>Tab. </b>")
-fc <- captioner::captioner(prefix="<b>Fig. </b>")
-
-# set knit options
-opts_knit$set(progress=TRUE,verbose=TRUE)
-opts_chunk$set(dev="svg",results="hold",fig.show="hold",fig.align="left",echo=FALSE,warning=FALSE,message=FALSE,accordion=NULL,
-block.title=NULL)
-#options(knitr.table.format = "html")
-```
-
-```{r,include=FALSE,cache=FALSE,eval=TRUE}
-# custom hooks
-## collapsible panel
-knitr::knit_hooks$set(accordion=function(before,options,envir) {
-  if(before) {
-    id <- paste0("acc",format(Sys.time(),"%Y%m%d%H%S"),sample(c(0:9),1),sample(c(0:9),1),sample(c(0:9),1),sample(c(0:9),1))
-    if(is.null(options$btntype)) {btntype <- "normal"}else{btntype <- options$btntype}
-    paste0('<p>',
-          '<button class="btn btn-sm btn-primary btn-collapse btn-collapse-',btntype,' collapsed" type="button" data-toggle="collapse" data-target="#',id,'" aria-expanded="false" aria-controls="',id,'">',
-          '</button>',
-          '</p>',
-          '<div class="collapse" id="',id,'">',
-          '<div class="card card-body">')
-  }else{
-    paste0("</div>","</div>")
-  }
-})
-
-## show title for code
-knitr::knit_hooks$set(block.title=function(before,options,envir) {
-
-out_class <- NULL
-if(is.null(options$class.output)) {
-if(options$echo) out_class <- options$engine
-if((!options$echo) & (options$results != "hide")) out_class <- "Output"
-}else{
-  out_class <- options$class.output
-}
-
-  if(before) {
-    paste0('<div class="block-title-parent"><div class="block-title small">',out_class,'</div>')
-  }else{
-    paste0('</div>')
-  }
-})
-```
-
-<!-- ----------------------- Do not edit above this ----------------------- -->
-
-```{r,eval=TRUE,include=FALSE}
-
+```{r,child="assets/header-lab.Rmd"}
 ```
 
 ```{r,echo=FALSE,include=FALSE}
@@ -149,21 +87,18 @@ rep_nbis <- "Name name"
 rep_nbis_email <- "somebody@nbis.se"
 ```
 
-<img src="assets/logo.svg" alt="logo" style="height:80px; float:right; top:0; margin-top:12px">
-
-<h1 class="toc-ignore title">NBIS Report</h1>
-<h4 class="toc-ignore subtitle">`r format(Sys.Date(),format="%d-%b-%Y")`</h4>
+<img src="assets/logo.svg" class="trlogo">
 
 <br>
 
-<div class="instruction abstract">
+::: boxy
 __NBIS ID:__ `r rep_nbis_id`   
 __Report Version:__ `r rep_report_version`  
 __Request by:__ `r paste0(rep_request," (",rep_request_email,")")`  
 __Principal Investigator:__ `r paste0(rep_pi," (",rep_pi_email,")")`   
 __Organisation:__ `r rep_org`  
 __NBIS Staff:__ `r paste0(rep_nbis," (",rep_nbis_email,")")`  
-</div>
+:::
 
 <br>
 
@@ -345,6 +280,12 @@ Here is another example of executed R code with input and output.
 
 ```{r,echo=TRUE}
 data(iris)
+head(iris[,1:2])
+```
+
+This is a hidden code.
+
+```{r,class.source='fold-hide'}
 head(iris[,1:2])
 ```
 
@@ -662,6 +603,166 @@ htmltools::div(lf,py)
 
 `r fc(name="interactive_crosstalk",caption="_Linking independent plots using crosstalk._")` 
 
+# Alerts
+
+```
+<div class="alert alert-success" role="alert">
+  This is a success alert—check it out!
+</div>
+<div class="alert alert-danger" role="alert">
+  This is a danger alert—check it out!
+</div>
+<div class="alert alert-warning" role="alert">
+  This is a warning alert—check it out!
+</div>
+<div class="alert alert-info" role="alert">
+  This is a info alert—check it out!
+</div>
+```
+
+<div class="alert alert-success" role="alert">
+  This is a success alert—check it out!
+</div>
+<div class="alert alert-danger" role="alert">
+  This is a danger alert—check it out!
+</div>
+<div class="alert alert-warning" role="alert">
+  This is a warning alert—check it out!
+</div>
+<div class="alert alert-info" role="alert">
+  This is a info alert—check it out!
+</div>
+
+# Chunk title
+
+The code language can be displayed above input code by setting `chunk.title=TRUE`.
+
+It can be placed above source block with output.
+
+```{r,echo=FALSE,comment=""}
+cat(paste0("```{r,chunk.title=TRUE}\n","Sys.Date()\n","``` \n"))
+```
+
+```{r,chunk.title=TRUE}
+Sys.Date()
+```
+
+Or it can be placed above source block without output.
+
+```{r,echo=FALSE,comment=""}
+cat(paste0("```{r,chunk.title=TRUE,eval=FALSE}\n","Sys.Date()\n","``` \n"))
+```
+
+```{r,chunk.title=TRUE,eval=FALSE}
+Sys.Date()
+```
+
+Or above output block if the source is hidden. In this case, the title changes to OUTPUT.
+
+```{r,echo=FALSE,comment=""}
+cat(paste0("```{r,chunk.title=TRUE,echo=FALSE}\n","Sys.Date()\n","``` \n"))
+```
+
+```{r,chunk.title=TRUE,echo=FALSE}
+Sys.Date()
+```
+
+For instruction, it might be necessary to run some code and print the output as input-source-code. `echo=FALSE` hides the source code. `comment=""` hides the `##` from print statements. `class.output="r"` code highlights the output chunk.
+
+```{r,echo=FALSE,comment=""}
+cat(paste0("```{r,chunk.title=TRUE,echo=FALSE,comment='',class.output='r'}\n","cat('Sys.Date()')\n","``` \n"))
+```
+
+```{r,chunk.title=TRUE,echo=FALSE,comment='',class.output='r'}
+cat("Sys.Date()")
+```
+
+# Accordion
+
+## Basic
+
+Code can be hidden for interactive display using `accordion=TRUE`.
+
+```{r,echo=FALSE,comment=""}
+cat(paste0("```{r,accordion=TRUE}\n","Sys.Date()\n","``` \n"))
+```
+
+The above code creates the button below.
+
+```{r,accordion=TRUE}
+Sys.Date()
+```
+
+Note that contents inside the accordion will NOT be printed (when minimised) on converting this HTML to PDF. Expanded accordion block will be printed when converting to PDF.
+
+## With additional text
+
+If the accordion block is to contain regular text and code block, then the raw HTML code needs to be used. Below is an example.
+
+````markdown
+<div class="boxy">
+
+**Challenge**
+
+If I create a vector as follows `x <-c(5,3,9,"6")`, what is the "type" of the element in the third position? Is it a number?
+
+<p>
+<button class="btn btn-sm btn-collapse collapsed" type="button" data-toggle="collapse" data-target="#task-vectors" aria-expanded="false" aria-controls="task-vectors">
+</button>
+</p>
+<div class="collapse" id="task-vectors">
+<div class="card card-body">
+
+```{r}
+x <-c(5,3,9,"6")
+typeof(x[3])
+```
+
+<i class="fas fa-lightbulb"></i> The third position is not a number, it's a character. In fact, all elements in this vector are characters. If there is a character in a numeric vector, all elements are converted to characters (`typeof(x)`).
+
+</div>
+</div>
+</div>
+````
+
+The above code creates the block below. Note that the variable `task-vectors` (used in 3 positions above) needs to changed to a unique value for each such block in a document. The code above renders as shown below.
+
+<div class="boxy">
+
+**Challenge**
+
+If I create a vector as follows `x <-c(5,3,9,"6")`, what is the "type" of the element in the third position? Is it a number?
+
+<p>
+<button class="btn btn-sm btn-collapse collapsed" type="button" data-toggle="collapse" data-target="#task-vectors" aria-expanded="false" aria-controls="task-vectors">
+</button>
+</p>
+<div class="collapse" id="task-vectors">
+<div class="card card-body">
+
+```{r}
+x <-c(5,3,9,"6")
+typeof(x[3])
+```
+
+The third position is not a number, it's a character. In fact, all elements in this vector are characters. If there is a character in a numeric vector, all elements are converted to characters (`typeof(x)`).
+
+</div>
+</div>
+</div>
+
+Notice how the help text after the code chunk is also inside the accordion.
+
+# Blur panel
+
+```{r,echo=FALSE,comment=""}
+cat(paste0("```{r,blur=TRUE}\n","Sys.Date()\n","``` \n"))
+```
+
+```{r,blur=TRUE}
+Sys.Date()
+```
+
 # General tips
 
 * Add custom css under YAML `css: ["default", "my-theme.css"]`  
@@ -675,17 +776,8 @@ htmltools::div(lf,py)
 
 </br>
 
-<p style="text-align: left; font-size: small;">
-Built on: <i class="fa fa-calendar" aria-hidden="true"></i> `r format(Sys.time(),format='%d-%b-%Y')`.
-</p>
-
-<hr/>
-
-<div style="padding-bottom: 1.5em">
-<span style="float:left; vertical-align:middle">
-<b>`r format(Sys.Date(),format="%Y")`</b> • [SciLifeLab](https://www.scilifelab.se/) • [NBIS](https://nbis.se/)
-</span>
-</div>
+```{r,child="assets/footer-lab.Rmd"}
+```
 
 ```{r,eval=FALSE,echo=FALSE}
 # manually run this to render this document to HTML

@@ -1,7 +1,7 @@
 Package: rmdstyle
 Type: Package
 Title: Rmarkdown templates.
-Version: 1.0
+Version: 1.1
 Author: Roy Francis
 Maintainer: The package maintainer <roy.francis@nbis.se>
 Description: Rmarkdown templates.

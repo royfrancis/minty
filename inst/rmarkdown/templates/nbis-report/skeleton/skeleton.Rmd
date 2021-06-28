@@ -1,88 +1,29 @@
 ---
+title: "NBIS Report"
+subtitle: '`r format(Sys.Date(),format="%d-%b-%Y")`'
 output:
   bookdown::html_document2:
-          toc: true
-          toc_float: true
-          toc_depth: 4
-          number_sections: true
-          theme: flatly
-          highlight: tango
-          df_print: paged
-          code_folding: "none"
-          self_contained: true
-          keep_md: false
-          encoding: 'UTF-8'
-          css: "assets/report.css"
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+      print: false
+    toc_depth: 4
+    number_sections: true
+    theme: flatly
+    highlight: textmate
+    df_print: paged
+    code_folding: "none"
+    self_contained: true
+    keep_md: false
+    encoding: 'UTF-8'
+    css: "assets/report.css"
 ---
 
-```{r,include=FALSE,cache=FALSE,eval=TRUE}
-## REPORT OPTIONS
-## code relating to the report creation
-## default working directory is the location of this document
-## all code is run in the working directory as the root
-
-# remove all variables
-rm(list=ls())
-
-# load libraries for document creation
-library(knitr) # runs pandoc
-library(bookdown) # for markdown
-#library(captioner) # for table and figure captions
-#library(extrafont) # for fonts in plots
-
-# prepare captions
-#tc <- captioner::captioner(prefix="<b>Tab. </b>")
-#fc <- captioner::captioner(prefix="<b>Fig. </b>")
-
-# set knit options
-opts_knit$set(progress=TRUE,verbose=TRUE)
-opts_chunk$set(dev="svg",results="hold",fig.show="hold",fig.align="left",echo=FALSE,warning=FALSE,message=FALSE,accordion=NULL,
-block.title=NULL)
-#options(knitr.table.format = "html")
-```
-
-```{r,include=FALSE,cache=FALSE,eval=TRUE}
-# custom hooks
-## collapsible panel
-knitr::knit_hooks$set(accordion=function(before,options,envir) {
-  if(before) {
-    id <- paste0("acc",format(Sys.time(),"%Y%m%d%H%S"),sample(c(0:9),1),sample(c(0:9),1),sample(c(0:9),1),sample(c(0:9),1))
-    if(is.null(options$btntype)) {btntype <- "normal"}else{btntype <- options$btntype}
-    paste0('<p>',
-          '<button class="btn btn-sm btn-primary btn-collapse btn-collapse-',btntype,' collapsed" type="button" data-toggle="collapse" data-target="#',id,'" aria-expanded="false" aria-controls="',id,'">',
-          '</button>',
-          '</p>',
-          '<div class="collapse" id="',id,'">',
-          '<div class="card card-body">')
-  }else{
-    paste0("</div>","</div>")
-  }
-})
-
-## show title for code
-knitr::knit_hooks$set(block.title=function(before,options,envir) {
-
-out_class <- NULL
-if(is.null(options$class.output)) {
-if(options$echo) out_class <- options$engine
-if((!options$echo) & (options$results != "hide")) out_class <- "Output"
-}else{
-  out_class <- options$class.output
-}
-
-  if(before) {
-    paste0('<div class="block-title-parent"><div class="block-title small">',out_class,'</div>')
-  }else{
-    paste0('</div>')
-  }
-})
+```{r,child="assets/header-lab.Rmd"}
 ```
 
 <!-- ----------------------- Do not edit above this ----------------------- -->
-
-```{r,eval=TRUE,include=FALSE}
-
-```
 
 ```{r,echo=FALSE,include=FALSE}
 ## LIBRARIES
@@ -104,8 +45,8 @@ theme_report <- function (basesize=12) {
             strip.background=element_blank(),
             axis.ticks.y=element_blank(),
             axis.ticks.x=element_line(colour="grey60"),
-		 plot.caption=element_text(hjust=0,colour="grey60",size=10),
-		 plot.title=element_text(colour="grey60")
+        		plot.caption=element_text(hjust=0,colour="grey60",size=10),
+        		plot.title=element_text(colour="grey60")
         )
 }
 
@@ -129,21 +70,18 @@ rep_nbis <- "Name name"
 rep_nbis_email <- "somebody@nbis.se"
 ```
 
-<img src="assets/logo.svg" alt="logo" style="height:80px; float:right; top:0; margin-top:12px">
-
-<h1 class="toc-ignore title">NBIS Report</h1>
-<h4 class="toc-ignore subtitle">`r format(Sys.Date(),format="%d-%b-%Y")`</h4>
+<img src="assets/logo.svg" class="trlogo">
 
 <br>
 
-<div class="instruction abstract">
+::: boxy
 __NBIS ID:__ `r rep_nbis_id`   
 __Report Version:__ `r rep_report_version`  
 __Request by:__ `r paste0(rep_request," (",rep_request_email,")")`  
 __Principal Investigator:__ `r paste0(rep_pi," (",rep_pi_email,")")`   
 __Organisation:__ `r rep_org`  
 __NBIS Staff:__ `r paste0(rep_nbis," (",rep_nbis_email,")")`  
-</div>
+:::
 
 <br>
 
@@ -159,6 +97,10 @@ Request sent by the user.
 * Reference data used
 
 # Tools
+
+```{r}
+head(iris)
+```
 
 # Workflow
 
@@ -235,7 +177,7 @@ If you are presenting the results in a paper, at a workshop or conference, we ki
 
 # Support Completion  
 
-You should soon be contacted by one of our managers, [Jessica Lindvall](jessica.lindvall@nbis.se) or [Henrik Lantz](Lantz henrik.lantz@nbis.se), with a request to close down the project in our internal system and for invoicing matters. If we do not hear from you within 30 days the project will be automatically closed and invoice sent. Again, we would like to remind you about data responsibility and acknowledgements, see sections: **Data Responsibility** and **Acknowledgments**.
+You should soon be contacted by one of our managers with a request to close down the project in our internal system and for invoicing matters. If we do not hear from you within 30 days the project will be automatically closed and invoice sent. Again, we would like to remind you about data responsibility and acknowledgements, see sections: **Data Responsibility** and **Acknowledgments**.
   
 You are welcome to come back to us with further data analysis request at any time via http://nbis.se/support/support.html.
 
@@ -243,23 +185,12 @@ Thank you for using NBIS.
 
 <!-- --------------------- Do not edit this and below ---------------------- -->
 
-</br>
-
-<p style="text-align: left; font-size: small;">
-Built on: <i class="fa fa-calendar" aria-hidden="true"></i> `r format(Sys.time(),format='%d-%b-%Y')`.
-</p>
-
-<hr/>
-
-<div style="padding-bottom: 1.5em">
-<span style="float:left; vertical-align:middle">
-<b>`r format(Sys.Date(),format="%Y")`</b> • [SciLifeLab](https://www.scilifelab.se/) • [NBIS](https://nbis.se/)
-</span>
-</div>
+```{r,child="assets/footer-lab.Rmd"}
+```
 
 ```{r,eval=FALSE,echo=FALSE}
 # manually run this to render this document to HTML
-rmarkdown::render("nbis-report.Rmd")
+rmarkdown::render("report.Rmd")
 # then run this to convert HTML to PDF (if needed)
 #pagedown::chrome_print("nbis-report.html",output="nbis-report.pdf")
 ```
