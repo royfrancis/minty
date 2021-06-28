@@ -104,7 +104,7 @@ __NBIS Staff:__ `r paste0(rep_nbis," (",rep_nbis_email,")")`
 
 # RMarkdown
 
-* This is an RMarkdown document. 
+* This is an RMarkdown document.
 * Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents.
 * Refer [here](https://rmarkdown.rstudio.com/authoring_basics.html) for a guide.
 * `.Rmd` documents can be rendered as such:
@@ -115,7 +115,7 @@ rmarkdown::render("report.Rmd")
 
 # Layout  
 
-Use `<div>content</div>` for block content and `<span>content</span>` for inline content. 
+Use `<div>content</div>` for block content and `<span>content</span>` for inline content.
 
 For paragraphs, use `<p>content</p>`. And use classes `text-left`, `text-center` and `text-right` to align text left, center and right respectively.
 
@@ -188,14 +188,14 @@ Headings can be defined as shown below.
 ### Level 3 heading  
 #### Level 4 heading  
 ##### Level 5 heading  
-###### Level 6 heading 
+###### Level 6 heading
 ```
 
 ## Level 2 heading  
 ### Level 3 heading  
 #### Level 4 heading  
 ##### Level 5 heading  
-###### Level 6 heading 
+###### Level 6 heading
 
 Six custom classes are defined for text scaling. This can be defined inside a paragraph (`<p>`) or `<span>`.
 
@@ -298,7 +298,7 @@ Unordered lists are created using asterisks.
 * Bullet 2  
     + Sub-bullet 2.1  
     + Sub-bullet 2.2  
-* Bullet 3 
+* Bullet 3
 
 Ordered lists are created using numbers.
 
@@ -455,7 +455,7 @@ iris %>%
 # Static plots  
 ## Base plot  
 
-* Plots using base R are widely used and may be good enough for most situations. 
+* Plots using base R are widely used and may be good enough for most situations.
 * But they lack a consistent coding framework.  
 
 ```{r,fig.height=6,fig.width=6}
@@ -507,8 +507,8 @@ htmltools::tagList(list(h))
 R package [`plotly`](https://plot.ly/r/) provides R binding around javascript plotting library [`plotly`](https://plot.ly).
 
 ```{r}
-p <- iris %>% 
-  plot_ly(x=~Sepal.Length,y=~Sepal.Width,color=~Species,width=500,height=400) %>% 
+p <- iris %>%
+  plot_ly(x=~Sepal.Length,y=~Sepal.Width,color=~Species,width=500,height=400) %>%
   add_markers()
 p
 ```
@@ -577,7 +577,7 @@ forceNetwork(Links=MisLinks,Nodes=MisNodes,Source="source",
 R package [`leaflet`](https://rstudio.github.io/leaflet/) provides R bindings for javascript mapping library; [leafletjs](http://leafletjs.com/).  
 
 ```{r}
-leaflet(height=500,width=700) %>% 
+leaflet(height=500,width=700) %>%
   addTiles(urlTemplate='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png') %>%
   #addProviderTiles(providers$Esri.NatGeoWorldMap) %>%
   addMarkers(lat=41.84201,lng=-89.485937,popup="CSC") %>%
@@ -595,13 +595,13 @@ shared_quakes <- SharedData$new(quakes[sample(nrow(quakes), 100),])
 lf <- leaflet(shared_quakes,height=300) %>%
         addTiles(urlTemplate='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png') %>%
         addMarkers()
-py <- plot_ly(shared_quakes,x=~depth,y=~mag,size=~stations,height=300) %>% 
+py <- plot_ly(shared_quakes,x=~depth,y=~mag,size=~stations,height=300) %>%
         add_markers()
 
 htmltools::div(lf,py)
 ```
 
-`r fc(name="interactive_crosstalk",caption="_Linking independent plots using crosstalk._")` 
+`r fc(name="interactive_crosstalk",caption="_Linking independent plots using crosstalk._")`
 
 # Alerts
 
@@ -785,4 +785,3 @@ rmarkdown::render("nbis-report.Rmd")
 # then run this to convert HTML to PDF (if needed)
 #pagedown::chrome_print("nbis-report.html",output="nbis-report.pdf")
 ```
-

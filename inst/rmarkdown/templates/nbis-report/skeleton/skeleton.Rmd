@@ -11,7 +11,7 @@ output:
     toc_depth: 4
     number_sections: true
     theme: flatly
-    highlight: textmate
+    highlight: tango
     df_print: paged
     code_folding: "none"
     self_contained: true
@@ -178,7 +178,7 @@ If you are presenting the results in a paper, at a workshop or conference, we ki
 # Support Completion  
 
 You should soon be contacted by one of our managers with a request to close down the project in our internal system and for invoicing matters. If we do not hear from you within 30 days the project will be automatically closed and invoice sent. Again, we would like to remind you about data responsibility and acknowledgements, see sections: **Data Responsibility** and **Acknowledgments**.
-  
+
 You are welcome to come back to us with further data analysis request at any time via http://nbis.se/support/support.html.
 
 Thank you for using NBIS.
@@ -194,4 +194,3 @@ rmarkdown::render("report.Rmd")
 # then run this to convert HTML to PDF (if needed)
 #pagedown::chrome_print("nbis-report.html",output="nbis-report.pdf")
 ```
-
