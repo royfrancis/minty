@@ -10,7 +10,6 @@ output:
       print: false
     toc_depth: 4
     number_sections: true
-    theme: flatly
     highlight: tango
     df_print: paged
     code_folding: "none"
