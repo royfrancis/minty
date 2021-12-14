@@ -1,4 +1,4 @@
-# minty  <span><img src="minty.png" style="height:40px;vertical-align:middle;"></span>
+# minty  <span><a href="https://github.com/royfrancis/minty"><img src="minty.png" style="height:40px;vertical-align:middle;"></a></span>
 
 [![ci_badge](https://github.com/royfrancis/minty/workflows/build/badge.svg)](https://github.com/royfrancis/minty/actions?workflow=build)  [![lifecycle_badge](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) 
 
