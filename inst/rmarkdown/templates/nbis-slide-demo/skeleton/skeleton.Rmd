@@ -108,7 +108,7 @@ output:
 * Or using `render()` as such:
 
 ```{r,echo=TRUE,eval=FALSE}
-rmarkdown::render("report.Rmd",output_format="html_document")
+rmarkdown::render("nbis-slide.Rmd")
 ```
 
 ---
@@ -207,14 +207,57 @@ name: layout-2
 # Custom Divs
 
 ```
-<div class="abstract">
+<div class="boxy">
 This is a special box.
 </div>
 ```
 
-<div class="abstract">
+<div class="boxy">
 This is a special box.
 </div>
+
+```
+<div class="boxy boxy-green">
+This is a green box.
+</div>
+```
+
+<div class="boxy boxy-green">
+This is a green box.
+</div>
+
+<div class="boxy boxy-yellow">
+This is a yellow box.
+</div>
+
+<div class="boxy boxy-orange">
+This is an orange box.
+</div>
+
+<div class="boxy boxy-red">
+This is an red box.
+</div>
+
+<div class="boxy boxy-blue">
+This is a blue box.
+</div>
+
+---
+name: text_formatting_0
+
+# Text Formatting
+
+Rendering of normal text, numbers and symbols.
+
+ABCDEFGHIJKLMNOPQRSTUYWXYZÅÄÖ
+
+abcdefghijklmnopqrstuvwxyzåäö
+
+0123456789
+
+!"#%&/\()$@*^~<>-:;,_±|?+=
+
+`!"#%&/\()$@*^~<>-:;,_±|?+=`
 
 ---
 name: text_formatting_1
@@ -310,7 +353,7 @@ name: code
 
 Code can be defined inline where `` `this` `` looks like `this`. R code can be executed inline `` `r "\u0060r Sys.Date()\u0060"` `` producing `r Sys.Date()`. Code can also be defined inside code blocks.
 
-<pre class="smaller">
+<pre>
 ```
 This is code
 ```
@@ -341,6 +384,14 @@ The code and results can be hidden by `` `r "\u0060\u0060\u0060{r,echo=FALSE,res
 ```{r,echo=TRUE}
 data(iris)
 head(iris[,1:2])
+```
+
+**Ligatures**
+
+== != && ++ *** <> <- <= <~
+
+```
+== != && ++ *** <> <- <= <~
 ```
 
 ]
@@ -390,7 +441,6 @@ name: images_markdown
 __Using Markdown__
 
 .pull-left-50[
-Using regular markdown.  
 
 ```
 ![](assets/cover.png)
@@ -398,20 +448,20 @@ Using regular markdown.
 
 ![](assets/cover.png)
 
+The dimensions are based on image and/or fill up the entire available space. You have no control over the displayed dimensions.
 ]
 
 .pull-right-50[
-The dimensions are based on image and/or fill up the entire available space. You have no control over the displayed dimensions.
 
 Custom classes can be used to control size.
 
 ```
+.size-30[![](assets/cover.png)]  
 .size-20[![](assets/cover.png)]  
-.size-10[![](assets/cover.png)]  
 ```
 
+.size-30[![](assets/cover.png)]  
 .size-20[![](assets/cover.png)]  
-.size-10[![](assets/cover.png)]  
 
 The number denotes % of the original dimension. The following size classes are implemented: `r seq(10,95,by=5)`.
 ]
