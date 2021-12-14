@@ -1,8 +1,8 @@
-# minty  <img src="minty.png" style="height:40px;">
+# minty  <span><img src="minty.png" style="height:40px;vertical-align:middle;"></span>
 
 [![ci_badge](https://github.com/royfrancis/minty/workflows/build/badge.svg)](https://github.com/royfrancis/minty/actions?workflow=build)  [![lifecycle_badge](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) 
 
-This is an R package containing R Markdown templates for reports/documentation and slides. The GitHub repo is available at  [https://github.com/royfrancis/minty](https://github.com/royfrancis/minty).
+An R package with R Markdown templates for reports/documentation and slides. The GitHub repo is available at  [https://github.com/royfrancis/minty](https://github.com/royfrancis/minty).
 
 ## Templates
 ### nbis-report
@@ -65,9 +65,9 @@ This will create an HTML file: **nbis-report.html**. This HTML file is intended 
 
 If you have corrections, comments or suggestions, feel free to submit a report on the Github [issues](https://github.com/royfrancis/minty/issues) page.
 
-Credit to <img src="freepik.png" style="height:20px;"> and <img src="flaticon.png" style="height:15px;"> for illustrations/graphics.
+Credit to <span><img src="freepik.png" style="height:20px;vertical-align:middle;"></span> and <span><img src="flaticon.png" style="height:15px;vertical-align:middle;"></span> for illustrations/graphics.
 
 ---
 
-**2022** | Roy Francis
+**2022** • Roy Francis
 
