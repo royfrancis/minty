@@ -1,0 +1,102 @@
+---
+title: "NBIS Slide"
+subtitle: "Rmarkdown & Xaringan"
+author: "`r paste0('<b>Author</b> • ',format(Sys.time(), '%d-%b-%Y'))`"
+institute: NBIS
+keywords: bioinformatics, course, workshop, scilifelab, nbis
+output:
+  xaringan::moon_reader:
+    encoding: 'UTF-8'
+    self_contained: true
+    chakra: 'assets/remark-latest.min.js'
+    css: 'assets/slide.css'
+    lib_dir: libs
+    include: NULL
+    nature:
+      ratio: '4:3'
+      highlightLanguage: r
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%/%total%"
+---
+exclude: true
+count: false
+
+```{r,echo=FALSE,child="assets/header-slide.Rmd"}
+```
+
+<!-- ------------ Only edit title, subtitle & author above this ------------ -->
+
+```{r,include=FALSE}
+# load the packages you need
+library(dplyr)
+```
+
+---
+name: content
+class: spaced
+
+# Contents
+
+* [Section 1](#section1)
+* [Section 2](#section2)
+* [Section 3](#section3)
+
+---
+name: section1
+
+# Section 1
+
+This is some text here.
+
+---
+name: section2
+
+# Section 2
+
+Here is some more stuff. And below is some code.
+
+```
+be_awesome <- function(sad){
+  if(sad == TRUE) {
+   sad <- FALSE
+  }
+  return(sad)
+}
+```
+
+---
+name: section3
+
+# Section 3
+
+```{r}
+head(iris)
+```
+
+---
+
+# Acknowledgements
+
+* [Tutorial 1](link-to-tutorial)
+* [Tutorial 2](link-to-tutorial)
+
+<!-- --------------------- Do not edit this and below --------------------- -->
+
+---
+name: end_slide
+class: end-slide, middle
+count: false
+
+# Thank you. Questions?
+
+```{r,echo=FALSE,child="assets/footer-slide.Rmd"}
+```
+
+```{r,include=FALSE,eval=FALSE}
+# manually run this to render this document to HTML
+rmarkdown::render("nbis-slide.Rmd")
+# manually run this to convert HTML to PDF
+#pagedown::chrome_print("nbis-slide.html",output="nbis-slide.pdf")
+```

@@ -1,0 +1,17 @@
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE,results='hide'}
+# run setup code
+
+# load libraries
+library(knitr) # runs pandoc
+
+color_primary <- "#95b540"
+color_text <- "#424949"
+
+# turn off terminal colors
+options(crayon.enabled = FALSE)
+
+# knitr options
+knitr::opts_knit$set(progress=TRUE,verbose=TRUE)
+knitr::opts_chunk$set(dev="png",fig.retina=2,results="hold",fig.show="hold",fig.align="left",echo=TRUE,warning=FALSE,message=FALSE)
+```

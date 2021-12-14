@@ -1,2 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^docs/
+^.git
+^.github
+LICENSE
+

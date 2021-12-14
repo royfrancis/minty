@@ -12,7 +12,7 @@ output:
     number_sections: true
     highlight: tango
     df_print: paged
-    code_folding: "none"
+    code_folding: "show"
     self_contained: true
     keep_md: false
     encoding: 'UTF-8'
@@ -22,7 +22,123 @@ output:
 ```{r,child="assets/header-lab.Rmd"}
 ```
 
+<!-- ----------------------- Do not edit above this ----------------------- -->
+
 ```{r,echo=FALSE,include=FALSE}
+# CUSTOM VARIABLES
+
+# custom ggplot theme
+theme_report <- function (basesize=12,basefamily=NULL,colour="grey60") {
+  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+    theme(
+      panel.border=element_blank(),
+      panel.grid.minor=element_blank(),
+      panel.grid.major.x=element_blank(),
+      legend.position="top",
+      legend.direction="horizontal",
+      legend.justification="center",
+      strip.background=element_blank(),
+      axis.ticks.y=element_blank(),
+      axis.ticks.x=element_line(colour=colour),
+      plot.caption=element_text(hjust=0,colour=colour,size=10),
+      plot.title=element_text(colour=colour),
+      plot.subtitle=element_text(colour=colour)
+    )
+}
+
+# custom ggplot theme
+theme_report_v <- function (basesize=12,basefamily=NULL,colour="grey60") {
+  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+    theme(
+      panel.border=element_blank(),
+      panel.grid.minor=element_blank(),
+      panel.grid.major.x=element_blank(),
+      legend.position="right",
+      legend.direction="vertical",
+      legend.justification="center",
+      strip.background=element_blank(),
+      axis.ticks.y=element_blank(),
+      axis.ticks.x=element_line(colour=colour),
+      plot.caption=element_text(hjust=0,colour=colour,size=10),
+      plot.title=element_text(colour=colour),
+      plot.subtitle=element_text(colour=colour)
+    )
+}
+
+# custom ggplot theme
+theme_simple <- function (basesize=12,basefamily=NULL,colour="grey60") {
+  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+    theme(
+      panel.border=element_blank(),
+      panel.grid=element_blank(),
+      legend.justification="center",
+      legend.position="top",
+      legend.direction="horizontal",
+      strip.background=element_blank(),
+      axis.ticks=element_blank(),
+      axis.text=element_blank(),
+      axis.title=element_blank(),
+      plot.caption=element_text(hjust=0,colour=colour,size=10),
+      plot.title=element_text(colour=colour),
+      plot.subtitle=element_text(colour=colour)
+    )
+}
+
+# custom ggplot theme
+theme_simple_v <- function (basesize=12,basefamily=NULL,colour="grey60") {
+  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+    theme(
+      panel.border=element_blank(),
+      panel.grid=element_blank(),
+      legend.justification="center",
+      legend.position="right",
+      legend.direction="vertical",
+      strip.background=element_blank(),
+      axis.ticks=element_blank(),
+      axis.text=element_blank(),
+      axis.title=element_blank(),
+      plot.caption=element_text(hjust=0,colour=colour,size=10),
+      plot.title=element_text(colour=colour),
+      plot.subtitle=element_text(colour=colour)
+    )
+}
+
+#colours
+col_sll_green <- "#95C11E"
+col_sll_blue <- "#0093BD"
+col_sll_orange <- "#EF7C00"
+col_sll_green_light <- "#f4f8e8"
+col_sll_blue_light <- "#e5f4f8"
+col_sll_orange_light <- "#fdf1e5"
+
+# project variables
+rep_nbis_id <- "1234"
+rep_report_version <- "1.0"
+rep_request <- "Name name"
+rep_request_email <- "somebody@email.com"
+rep_pi <- "Name name"
+rep_pi_email <- "somebody@email.com"
+rep_org <- "Some University"
+rep_nbis <- "Name name"
+rep_nbis_email <- "somebody@nbis.se"
+```
+
+<br>
+
+::: boxy
+__NBIS ID:__ `r rep_nbis_id`   
+__Report Version:__ `r rep_report_version`  
+__Request by:__ `r paste0(rep_request," (",rep_request_email,")")`  
+__Principal Investigator:__ `r paste0(rep_pi," (",rep_pi_email,")")`   
+__Organisation:__ `r rep_org`  
+__NBIS Staff:__ `r paste0(rep_nbis," (",rep_nbis_email,")")`  
+:::
+
+<br>
+
+# Setup
+
+```{r,echo=TRUE}
 ## LIBRARIES
 # load the packages you need for this document
 
@@ -47,60 +163,7 @@ library(dygraphs) # time series
 library(networkD3) # network graph
 library(leaflet) # interactive maps
 library(crosstalk) # linking plots
-
-# CUSTOM VARIABLES
-# custom ggplot theme
-theme_report <- function (basesize=12) {
-    theme_bw(base_size=basesize) %+replace%
-        theme(
-            panel.border=element_blank(),
-            panel.grid.minor=element_blank(),
-            panel.grid.major.x=element_blank(),
-            legend.position="top",
-            legend.direction="horizontal",
-            legend.justification="right",
-            strip.background=element_blank(),
-            axis.ticks.y=element_blank(),
-            axis.ticks.x=element_line(colour="grey60"),
-		 plot.caption=element_text(hjust=0,colour="grey60",size=10),
-		 plot.title=element_text(colour="grey60")
-        )
-}
-
-#colours
-col_sll_green <- "#95C11E"
-col_sll_blue <- "#0093BD"
-col_sll_orange <- "#EF7C00"
-col_sll_green_light <- "#f4f8e8"
-col_sll_blue_light <- "#e5f4f8"
-col_sll_orange_light <- "#fdf1e5"
-
-# project variables
-rep_nbis_id <- "1234"
-rep_report_version <- "1.0"
-rep_request <- "Name name"
-rep_request_email <- "somebody@ki.se"
-rep_pi <- "Name name"
-rep_pi_email <- "somebody@ki.se"
-rep_org <- "Some University"
-rep_nbis <- "Name name"
-rep_nbis_email <- "somebody@nbis.se"
 ```
-
-<img src="assets/logo.svg" class="trlogo">
-
-<br>
-
-::: boxy
-__NBIS ID:__ `r rep_nbis_id`   
-__Report Version:__ `r rep_report_version`  
-__Request by:__ `r paste0(rep_request," (",rep_request_email,")")`  
-__Principal Investigator:__ `r paste0(rep_pi," (",rep_pi_email,")")`   
-__Organisation:__ `r rep_org`  
-__NBIS Staff:__ `r paste0(rep_nbis," (",rep_nbis_email,")")`  
-:::
-
-<br>
 
 # RMarkdown
 
@@ -180,6 +243,16 @@ Nested right.
 <br>
 
 # Text formatting  
+
+Rendering of normal text, numbers and symbols.
+
+ABCDEFGHIJKLMNOPQRSTUYWXYZÅÄÖ
+
+abcdefghijklmnopqrstuvwxyzåäö
+
+0123456789
+
+!"#%&/\()$@*^~<>-:;,_±|?+=
 
 Headings can be defined as shown below.  
 
@@ -289,6 +362,8 @@ This is a hidden code.
 head(iris[,1:2])
 ```
 
+This is a long inline code `Very very very very very very very very very very very very very very very very long inline code`.
+
 # Lists  
 ## Bulleted List  
 
@@ -312,33 +387,33 @@ Ordered lists are created using numbers.
 Using regular markdown.  
 
 ```
-![](assets/cover.jpg)
+![](assets/cover.png)
 ```
 
-![](assets/cover.jpg)
+![](assets/cover.png)
 
 The dimensions are based on image and/or fill up the entire available space. You can control the dimension as shown below.
 
 ```
-![](assets/cover.jpg){width=30%}  
+![](assets/cover.png){width=30%}  
 ```
 
 
-![](assets/cover.jpg){width=30%}   
+![](assets/cover.png){width=30%}   
 
 This image above is now 30% of it's original width.
 
 ## Using HTML
 
 This image below is 30% size.  
-`<img src="assets/cover.jpg" style="width:30%;"/>`  
+`<img src="assets/cover.png" style="width:30%;"/>`  
 
-<img src="assets/cover.jpg" style="width:30%;"/>  
+<img src="assets/cover.png" style="width:30%;"/>  
 
 This image below is 30% size, has shadow and corners rounded.  
-`<img src="assets/cover.jpg" style="width:30%;" class="fancyimage"/>`  
+`<img src="assets/cover.png" style="width:30%;" class="fancyimage"/>`  
 
-<img src="assets/cover.jpg" style="width:30%;" class="fancyimage"/>  
+<img src="assets/cover.png" style="width:30%;" class="fancyimage"/>  
 
 ## Using R  
 
@@ -347,21 +422,21 @@ R chunks in RMarkdown can be used to control image display size using the arguem
 This image below is displayed at a size of 300 pixels.  
 
 ```{r,echo=FALSE,comment=""}
-cat(paste0("```{r,out.width=300}\n","knitr::include_graphics('assets/cover.jpg')\n","``` \n"))
+cat(paste0("```{r,out.width=300}\n","knitr::include_graphics('assets/cover.png')\n","``` \n"))
 ```
 
 ```{r,echo=FALSE,fig.retina=NULL,out.width=300}
-knitr::include_graphics("assets/cover.jpg")
+knitr::include_graphics("assets/cover.png")
 ```
 
 This image below is displayed at a size of 75 pixels.  
 
 ```{r,echo=FALSE,comment=""}
-cat(paste0("```{r,out.width=75}\n","knitr::include_graphics('assets/cover.jpg')\n","``` \n"))
+cat(paste0("```{r,out.width=75}\n","knitr::include_graphics('assets/cover.png')\n","``` \n"))
 ```
 
 ```{r,echo=FALSE,fig.retina=NULL,out.width=75}
-knitr::include_graphics("assets/cover.jpg")
+knitr::include_graphics("assets/cover.png")
 ```
 
 # Math expressions  
@@ -583,7 +658,7 @@ leaflet(height=500,width=700) %>%
   addMarkers(lat=41.84201,lng=-89.485937,popup="CSC") %>%
   setView(lat=41.84201,lng=-89.485937,zoom=15)
 ```
-44.244167, 7.769444
+
 `r fc(name="interactive_map",caption="_Interactive map using leaflet._")`
 
 ## crosstalk  
@@ -704,7 +779,7 @@ If the accordion block is to contain regular text and code block, then the raw H
 
 **Challenge**
 
-If I create a vector as follows `x <-c(5,3,9,"6")`, what is the "type" of the element in the third position? Is it a number?
+If I create a vector as follows `x <- c(5,3,9,"6")`, what is the "type" of the element in the third position? Is it a number?
 
 <p>
 <button class="btn btn-sm btn-collapse collapsed" type="button" data-toggle="collapse" data-target="#task-vectors" aria-expanded="false" aria-controls="task-vectors">
@@ -714,11 +789,11 @@ If I create a vector as follows `x <-c(5,3,9,"6")`, what is the "type" of the el
 <div class="card card-body">
 
 ```{r}
-x <-c(5,3,9,"6")
+x <- c(5,3,9,"6")
 typeof(x[3])
 ```
 
-<i class="fas fa-lightbulb"></i> The third position is not a number, it's a character. In fact, all elements in this vector are characters. If there is a character in a numeric vector, all elements are converted to characters (`typeof(x)`).
+The third position is not a number, it's a character. In fact, all elements in this vector are characters. If there is a character in a numeric vector, all elements are converted to characters (`typeof(x)`).
 
 </div>
 </div>
@@ -731,7 +806,7 @@ The above code creates the block below. Note that the variable `task-vectors` (u
 
 **Challenge**
 
-If I create a vector as follows `x <-c(5,3,9,"6")`, what is the "type" of the element in the third position? Is it a number?
+If I create a vector as follows `x <- c(5,3,9,"6")`, what is the "type" of the element in the third position? Is it a number?
 
 <p>
 <button class="btn btn-sm btn-collapse collapsed" type="button" data-toggle="collapse" data-target="#task-vectors" aria-expanded="false" aria-controls="task-vectors">
@@ -741,7 +816,7 @@ If I create a vector as follows `x <-c(5,3,9,"6")`, what is the "type" of the el
 <div class="card card-body">
 
 ```{r}
-x <-c(5,3,9,"6")
+x <- c(5,3,9,"6")
 typeof(x[3])
 ```
 

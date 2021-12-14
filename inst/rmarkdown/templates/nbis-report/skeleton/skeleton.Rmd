@@ -12,7 +12,7 @@ output:
     number_sections: true
     highlight: tango
     df_print: paged
-    code_folding: "none"
+    code_folding: "show"
     self_contained: true
     keep_md: false
     encoding: 'UTF-8'
@@ -25,28 +25,82 @@ output:
 <!-- ----------------------- Do not edit above this ----------------------- -->
 
 ```{r,echo=FALSE,include=FALSE}
-## LIBRARIES
-# load the packages you need for this document
-
-# library(ggplot2)
-
 # CUSTOM VARIABLES
+
 # custom ggplot theme
-theme_report <- function (basesize=12) {
-    theme_bw(base_size=basesize) %+replace%
-        theme(
-            panel.border=element_blank(),
-            panel.grid.minor=element_blank(),
-            panel.grid.major.x=element_blank(),
-            legend.position="top",
-            legend.direction="horizontal",
-            legend.justification="right",
-            strip.background=element_blank(),
-            axis.ticks.y=element_blank(),
-            axis.ticks.x=element_line(colour="grey60"),
-        		plot.caption=element_text(hjust=0,colour="grey60",size=10),
-        		plot.title=element_text(colour="grey60")
-        )
+theme_report_h <- function (basesize=12,basefamily=NULL,colour="grey60") {
+  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+    theme(
+      panel.border=element_blank(),
+      panel.grid.minor=element_blank(),
+      panel.grid.major.x=element_blank(),
+      legend.position="top",
+      legend.direction="horizontal",
+      legend.justification="center",
+      strip.background=element_blank(),
+      axis.ticks.y=element_blank(),
+      axis.ticks.x=element_line(colour=colour),
+      plot.caption=element_text(hjust=0,colour=colour,size=10),
+      plot.title=element_text(colour=colour),
+      plot.subtitle=element_text(colour=colour)
+    )
+}
+
+# custom ggplot theme
+theme_report <- function (basesize=12,basefamily=NULL,colour="grey60") {
+  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+    theme(
+      panel.border=element_blank(),
+      panel.grid.minor=element_blank(),
+      panel.grid.major.x=element_blank(),
+      legend.position="right",
+      legend.direction="vertical",
+      legend.justification="center",
+      strip.background=element_blank(),
+      axis.ticks.y=element_blank(),
+      axis.ticks.x=element_line(colour=colour),
+      plot.caption=element_text(hjust=0,colour=colour,size=10),
+      plot.title=element_text(colour=colour),
+      plot.subtitle=element_text(colour=colour)
+    )
+}
+
+# custom ggplot theme
+theme_simple_h <- function (basesize=12,basefamily=NULL,colour="grey60") {
+  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+    theme(
+      panel.border=element_blank(),
+      panel.grid=element_blank(),
+      legend.justification="center",
+      legend.position="top",
+      legend.direction="horizontal",
+      strip.background=element_blank(),
+      axis.ticks=element_blank(),
+      axis.text=element_blank(),
+      axis.title=element_blank(),
+      plot.caption=element_text(hjust=0,colour=colour,size=10),
+      plot.title=element_text(colour=colour),
+      plot.subtitle=element_text(colour=colour)
+    )
+}
+
+# custom ggplot theme
+theme_simple <- function (basesize=12,basefamily=NULL,colour="grey60") {
+  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+    theme(
+      panel.border=element_blank(),
+      panel.grid=element_blank(),
+      legend.justification="center",
+      legend.position="right",
+      legend.direction="vertical",
+      strip.background=element_blank(),
+      axis.ticks=element_blank(),
+      axis.text=element_blank(),
+      axis.title=element_blank(),
+      plot.caption=element_text(hjust=0,colour=colour,size=10),
+      plot.title=element_text(colour=colour),
+      plot.subtitle=element_text(colour=colour)
+    )
 }
 
 #colours
@@ -61,15 +115,13 @@ col_sll_orange_light <- "#fdf1e5"
 rep_nbis_id <- "1234"
 rep_report_version <- "1.0"
 rep_request <- "Name name"
-rep_request_email <- "somebody@ki.se"
+rep_request_email <- "somebody@email.com"
 rep_pi <- "Name name"
-rep_pi_email <- "somebody@ki.se"
+rep_pi_email <- "somebody@email.com"
 rep_org <- "Some University"
 rep_nbis <- "Name name"
 rep_nbis_email <- "somebody@nbis.se"
 ```
-
-<img src="assets/logo.svg" class="trlogo">
 
 <br>
 
@@ -83,6 +135,17 @@ __NBIS Staff:__ `r paste0(rep_nbis," (",rep_nbis_email,")")`
 :::
 
 <br>
+
+# Setup
+
+```{r,echo=TRUE}
+## LIBRARIES
+# load the packages you need for this document
+
+# library(ggplot2)
+```
+
+# Version
 
 # Support Request  
 
@@ -122,41 +185,49 @@ Files delivered to the user with descriptions.
 ## Directory  
 
 ```sh
-.
-+-- fq_raw/
-+-- fq_trimmed/
-+-- kallisto/
-+-- mapping_star_genome/
-+   +-- alignments/
-+   +-- alignments_qc/
-+   +-- featurecounts/
-+   +-- qorts/
-+   +-- rsem/
-+-- qc/
-+   +-- featurecounts_summary/
-+   +-- fq_raw_qc
-+   +-- fq_trimmed_logs
-+   +-- fq_trimmed_qc
-+-- salmon/
+/data/processed/b/
+├── clustering
+│   ├── 08
+│   │   ├── clusters.png
+│   │   ├── dge
+│   │   ├── figures
+│   │   ├── markers-dotplot.png
+│   │   ├── markers-heatmap.png
+│   │   ├── markers.Rds
+│   │   ├── markers.xlsx
+│   │   ├── spatial-sample-celltype.png
+│   │   └── umap-sample-celltype.png
+│   ├── 08-subset
+│   │   ├── dge
+│   │   ├── figures
+│   │   ├── seurat-08-subset.Rds (seurat file subsetted)
+│   │   ├── spatial-sample-celltype.png
+│   │   └── umap-sample-celltype.png
+│   └── optimising
+│       ├── clustering-optimising-resolution.png
+│       ├── clusters-spatial.png
+│       ├── clusters-umap.png
+│       └── clustree.png
+├── qc-spatial.png
+├── qc-umap.png
+├── qc-violin.png
+└── seurat-cre-pcsk9.Rds (complete seurat file with clusters)
+
+8 directories, 18 files
 ```
 
 Total size is 70 GB.
 
-## Description  
-
-+ __fq_raw :__ Raw fastq files.
-+ __fq_trimmed :__ Trimmed fastq files.
-+ __kallisto :__ Kallisto results.
-+ __mapping_star_genome :__ STAR alignment results.
-+ __qc :__ Quality control results.
-+ __salmon :__ Salmon results.
+# Timeline
 
 # Practical Info  
 ## Data responsibility
 
-+ __NBIS & Uppnex: __ Unfortunately, we do not have resources to keep any files associated with the support request. We kindly suggest that you store safely the results delivered by us. In addition, we kindly ask that you remove the files from UPPMAX/UPPNEX. The main storage at UPPNEX is optimized for high-speed and parallel access, which makes it expensive and not the right place for longer time archiving. Please consider others by not taking up the expensive space. Please note that UPPMAX is a resource separate from the Bioinformatics Platform, administered by the Swedish National Infrastructure for Computing (SNIC) and SNIC-specifc project rules apply to all projects hosted at UPPMAX.   
+The responsibility for data archiving lies with the PI of the project. We do not offer long-term storage or retrieval of data.
+
++ __NBIS & Uppnex: __ We kindly ask that you remove the files from UPPMAX/UPPNEX. The main storage at UPPNEX is optimized for high-speed and parallel access, which makes it expensive and not the right place for longer time archiving. Please consider others by not taking up the expensive space. Please note that UPPMAX is a resource separate from the Bioinformatics Platform, administered by the Swedish National Infrastructure for Computing (SNIC) and SNIC-specifc project rules apply to all projects hosted at UPPMAX.   
 + __Sensitive data :__ Please note that special considerations may apply to the human-derived legally considered sensitive personal data. These should be handled according to specific laws and regulations as outlined e.g. [here](http://nbis.se/support/human-data.html).  
-+ __Long-term backup :__ The responsibility for data archiving lies with universities and we recommend asking your local IT for support with long-term data archiving. Also a newly established [Data Office](https://www.scilifelab.se/data/) at SciLifeLab may be of help to discuss other options.  
++ __Long-term backup :__ We recommend asking your local IT for support with long-term data archiving. Also a newly established [Data Office](https://www.scilifelab.se/data/) at SciLifeLab may be of help to discuss other options.  
 
 ## Acknowledgments
 
@@ -189,7 +260,7 @@ Thank you for using NBIS.
 
 ```{r,eval=FALSE,echo=FALSE}
 # manually run this to render this document to HTML
-rmarkdown::render("report.Rmd")
+rmarkdown::render("nbis-report.Rmd")
 # then run this to convert HTML to PDF (if needed)
 #pagedown::chrome_print("nbis-report.html",output="nbis-report.pdf")
 ```

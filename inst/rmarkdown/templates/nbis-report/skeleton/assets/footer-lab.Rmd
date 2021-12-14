@@ -3,7 +3,7 @@ title: "&nbsp;"
 ---
 
 <footer class="footer">
-<div class="container footer-container">
+<div class="footer-container">
 <div class="row">
 
 <hr>

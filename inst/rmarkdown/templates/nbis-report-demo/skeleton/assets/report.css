@@ -2,7 +2,41 @@
 /* 2021 Roy Francis */
 
 /* define font */
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i|Ubuntu+Mono&display=swap&subset=latin-ext');
+
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url("fonts/SourceSansPro-Regular.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url('fonts/SourceSansPro-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url('fonts/SourceSansPro-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url('fonts/SourceSansPro-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url('fonts/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
 
 :root {
   --color-primary: #95b540;
@@ -15,17 +49,16 @@
   --color-code-inline: #5d6d7e;
   --color-boxy-bg: #fbfcfc;
   --color-shadow: #E0E0E0;
-  --color-optional: #bf6300;
   --font-base: 'Source Sans Pro';
   --font-highlight: 'Source Sans Pro';
-  --font-code: 'Ubuntu Mono';
+  --font-code: 'JetBrains Mono';
 }
 
-/* body font */
+/* FONTS -------------------------------------------------------------------- */
+
 /* body font family */
 body,p,h1,h2,h3,h4,h5,h6 {
   font-family: var(--font-base, 'Roboto', 'DIN', 'Helvetica', sans-serif);
-  /*color: var(--color-text);*/
   font-weight: 400;
   font-size: 17px;
   line-height: 1.55;
@@ -34,7 +67,6 @@ body,p,h1,h2,h3,h4,h5,h6 {
 /* title font family, weight and size */
 h1,h2,h3 {
   font-family: var(--font-highlight, 'Roboto', 'DIN', 'Helvetica', sans-serif);
-  /*color: var(--color-text);*/
   font-weight: 600;
 }
 
@@ -79,17 +111,24 @@ h6 {
 }
 
 /* code style */
-div.sourceCode, pre {
-  font-family: var(--font-code,"Menlo","Monaco", "Consolas","Liberation Mono", "Courier New", monospace);
+
+div.sourceCode {
   background-color: var(--color-code-bg);
-  border: 0px !important;
-  font-size: 16px;
+  /*border: 0px !important;*/
   box-shadow: 1px 1px 6px var(--color-shadow);
+  /*margin: 0 !important;*/
+}
+
+pre, pre.sourceCode, code {
+ font-family: var(--font-code,"Menlo","Monaco", "Consolas","Liberation Mono", "Courier New", monospace);
+ font-weight: 400;
+ font-size: 15px;
+ line-height: 1.6;
+ border: 0px !important;
+ background-color: var(--color-code-bg);
 }
 
 code {
-  font-family: var(--font-code,"Menlo","Monaco", "Consolas","Liberation Mono", "Courier New", monospace);
-  font-size: 16px;
   word-break: break-all;
 }
 
@@ -141,7 +180,7 @@ blockquote::before {
   content: '"';
   font-size: 200%;
   position: absolute;
-  left: 25px;
+  left: 0.72em;
 }
 
 /* abstract paragraph style */
@@ -201,28 +240,28 @@ blockquote::before {
  border-left-color: #bf6300;
 }
 
-.boxy-warning {
+.boxy-yellow {
  color: #8a6d3b;
  background-color: #fcf8e3;
  border-color: #faebcc;
  border-left-color: #8a6d3b;
 }
 
-.boxy-success {
+.boxy-green {
  color: #3c763d;
  background-color: #dff0d8;
  border-color: #d6e9c6;
  border-left-color: #3c763d;
 }
 
-.boxy-danger {
+.boxy-red {
  color: #a94442;
  background-color: #f2dede;
  border-color: #ebccd1;
  border-left-color: #a94442;
 }
 
-.boxy-info {
+.boxy-blue {
  color: #31708f;
  background-color: #d9edf7;
  border-color: #bce8f1;
@@ -242,17 +281,24 @@ blockquote::before {
 .boxy-orange blockquote {
   border-left-color: #bf6300;
 }
-.boxy-success blockquote {
+.boxy-green blockquote {
   border-left-color: #3c763d;
 }
-.boxy-warning blockquote{
+.boxy-yellow blockquote{
   border-left-color: #8a6d3b;
 }
-.boxy-danger blockquote {
+.boxy-red blockquote {
   border-left-color: #a94442;
 }
-.boxy-info blockquote {
+.boxy-blue blockquote {
   border-left-color: #31708f;
+}
+
+/* TABLES ------------------------------------------------------------------- */
+
+/* table even shading colour */
+.even {
+    background-color: var(--color-code-bg);
 }
 
 /* IMAGES ------------------------------------------------------------------- */
@@ -354,7 +400,7 @@ button.btn {
  width: 35px;
 }
 
-/* accordion buttons by themselves or inside boxy-primary by default take primary colour */
+/* accordion buttons by themselves or inside boxy by default take primary colour */
 button.btn-collapse {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -411,29 +457,29 @@ button.btn-collapse:hover, button.btn-collapse:active, button.btn-collapse:focus
 }
 
 /* accordion buttons inside boxy-orange by default takes orange colour */
-.boxy-orange button.btn-collapse, button.btn-collapse-optional {
+.boxy-orange button.btn-collapse, button.btn-collapse-orange {
   color: white;
-  border-color: var(--color-optional);
-  background-color: var(--color-optional);
+  border-color: #bf6300;
+  background-color: #bf6300;
 }
 
-.boxy-orange button.btn-collapse:hover, button.btn-collapse-optional:hover {
+.boxy-orange button.btn-collapse:hover, button.btn-collapse-orange:hover {
     background-color: white;
-    color: var(--color-optional);
+    color: #bf6300;
     border-color: white;
-    box-shadow: 0px 3px 30px -9px var(--color-optional);
-    -webkit-box-shadow: 0px 3px 30px -9px var(--color-optional);
-    -moz-box-shadow: 0px 3px 30px -9px var(--color-optional);
+    box-shadow: 0px 3px 30px -9px #bf6300;
+    -webkit-box-shadow: 0px 3px 30px -9px #bf6300;
+    -moz-box-shadow: 0px 3px 30px -9px #bf6300;
 }
 
-/* accordion buttons inside boxy-warning by default takes yellow colour */
-.boxy-warning button.btn-collapse, button.btn-collapse-warning {
+/* accordion buttons inside boxy-yellow by default takes yellow colour */
+.boxy-yellow button.btn-collapse, button.btn-collapse-yellow {
   color: white;
   border-color: #8a6d3b;
   background-color: #8a6d3b;
 }
 
-.boxy-warning button.btn-collapse:hover, button.btn-collapse-warning:hover {
+.boxy-yellow button.btn-collapse:hover, button.btn-collapse-yellow:hover {
     background-color: white;
     color: #8a6d3b;
     border-color: white;
@@ -442,14 +488,14 @@ button.btn-collapse:hover, button.btn-collapse:active, button.btn-collapse:focus
     -moz-box-shadow: 0px 3px 30px -9px #8a6d3b;
 }
 
-/* accordion buttons inside boxy-success by default takes green colour */
-.boxy-success button.btn-collapse, button.btn-collapse-success {
+/* accordion buttons inside boxy-green by default takes green colour */
+.boxy-green button.btn-collapse, button.btn-collapse-green {
   color: white;
   border-color: #3c763d;
   background-color: #3c763d;
 }
 
-.boxy-success button.btn-collapse:hover, button.btn-collapse-success:hover {
+.boxy-green button.btn-collapse:hover, button.btn-collapse-green:hover {
     background-color: white;
     color: #3c763d;
     border-color: white;
@@ -458,14 +504,14 @@ button.btn-collapse:hover, button.btn-collapse:active, button.btn-collapse:focus
     -moz-box-shadow: 0px 3px 30px -9px #3c763d;
 }
 
-/* accordion buttons inside boxy-danger by default takes red colour */
-.boxy-danger button.btn-collapse, button.btn-collapse-danger {
+/* accordion buttons inside boxy-red by default takes red colour */
+.boxy-red button.btn-collapse, button.btn-collapse-red {
   color: white;
   border-color: #a94442;
   background-color: #a94442;
 }
 
-.boxy-danger button.btn-collapse:hover, button.btn-collapse-danger:hover {
+.boxy-red button.btn-collapse:hover, button.btn-collapse-red:hover {
     background-color: white;
     color: #a94442;
     border-color: white;
@@ -474,15 +520,15 @@ button.btn-collapse:hover, button.btn-collapse:active, button.btn-collapse:focus
     -moz-box-shadow: 0px 3px 30px -9px #a94442;
 }
 
-/* accordion buttons inside boxy-info by default takes blue colour */
+/* accordion buttons inside boxy-blue by default takes blue colour */
 
-.boxy-info button.btn-collapse, button.btn-collapse-info {
+.boxy-blue button.btn-collapse, button.btn-collapse-blue {
   color: white;
   border-color: #31708f;
   background-color: #31708f;
 }
 
-.boxy-info button.btn-collapse:hover, button.btn-collapse-info:hover {
+.boxy-blue button.btn-collapse:hover, button.btn-collapse-blue:hover {
     background-color: white;
     color: #31708f;
     border-color: white;
@@ -496,9 +542,8 @@ button.btn.collapsed:before
     content: '+';
     display: block;
     width: 15px;
-    font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    font-size: 80%;
+    font-size: 1.5rem;
 }
 
 button.btn:before
@@ -506,9 +551,8 @@ button.btn:before
     content: '-';
     display: block;
     width: 15px;
-    font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    font-size: 80%;
+    font-size: 1.5rem;
 }
 
 /** top title code **/
@@ -522,8 +566,15 @@ div.chunk-title {
   border-radius: 4px;
   padding: 2px 2px 2px 10px;
   margin-top: auto;
-  margin-bottom: auto;
   color: white;
+}
+
+.chunk-title-parent .sourceCode {
+ margin-top: 0;
+}
+
+div.card {
+ padding-top: 1em;
 }
 
 /* navbar ------------------------------------------------------------------- */
@@ -571,6 +622,8 @@ ul.nav a:hover {
 
 .navbar .container {
   max-width: 940px !important;
+  padding: 0px;
+  margin-top: 40px;
 }
 
 /* footer ------------------------------------------------------------------- */
@@ -606,10 +659,11 @@ ul.nav a:hover {
   text-decoration: underline;
 }
 
-/* tocify ---------------------------------------------------------------------- */
+/* tocify ------------------------------------------------------------------- */
 
 .tocify li {
  font-size: 0.9em;
+ line-height: 1.2em !important;
 }
 
 .tocify {
@@ -624,10 +678,18 @@ ul.nav a:hover {
   font-weight: 600;
   background-color: var(--color-code-bg);
   border: none;
-  border-left: 6px solid var(--color-border);
 }
 
-/* COLUMNS ------------------------------------------------------------------- */
+#TOC::before {
+  content: url(logo.svg);
+  display: block;
+  width: 70px;
+  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+/* COLUMNS ------------------------------------------------------------------ */
 
 .pull-center{
   width: 100%;
@@ -725,7 +787,7 @@ ul.nav a:hover {
   margin-left: 0.5%;
 }
 
-/* blur panel -------------------------------------------------------------------------------- */
+/* blur panel --------------------------------------------------------------- */
 
 .blur-title {
   position: absolute;
@@ -762,7 +824,7 @@ ul.nav a:hover {
  opacity: 0;
 }
 
-/* blur effect ------------------------------------------------------------------------------- */
+/* blur effect -------------------------------------------------------------- */
 
 .blur-effect {
   transition: .2s ease;
@@ -776,4 +838,35 @@ ul.nav a:hover {
 .blur-effect:active {
  transition: .2s ease;
  filter: none;
+}
+
+/* code hiding button ------------------------------------------------------- */
+
+button.btn.code-folding-btn {
+  margin-bottom: 0;
+  height: 30px;
+  width: 50px;
+  border: none;
+}
+
+button.btn.code-folding-btn::before {
+  display: inline;
+  margin-right: 5px;
+}
+
+.btn-group {
+  top: 50px;
+  width: 60px;
+}
+
+button.btn.dropdown-toggle {
+  margin-bottom: 0;
+  height: 30px;
+  width: 60px;
+  border: none;
+}
+
+button.btn.dropdown-toggle::before {
+  display: inline;
+  margin-right: 5px;
 }

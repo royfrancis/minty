@@ -3,8 +3,10 @@ title: "&nbsp;"
 ---
 
 <footer class="footer">
-<div class="container footer-container">
+<div class="footer-container">
 <div class="row">
+
+<hr>
 
 <div class="col-sm-8" style="text-align:left;vertical-align:middle;">
 <p class="small" style="color:#bdbdbd;">

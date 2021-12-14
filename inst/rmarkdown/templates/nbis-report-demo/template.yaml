@@ -1,4 +1,4 @@
-name: NBIS report demo template
-description: Rmarkdown report demo template
-author: Roy Francis
+name: NBIS Report Demo
+description: NBIS Rmarkdown report demo template
+author: Author
 create_dir: false
