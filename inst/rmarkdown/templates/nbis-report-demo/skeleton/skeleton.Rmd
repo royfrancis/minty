@@ -19,7 +19,7 @@ output:
     css: "assets/report.css"
 ---
 
-```{r,child="assets/header-lab.Rmd"}
+```{r,child="assets/_header-lab.Rmd"}
 ```
 
 <!-- ----------------------- Do not edit above this ----------------------- -->
@@ -851,7 +851,7 @@ Sys.Date()
 
 </br>
 
-```{r,child="assets/footer-lab.Rmd"}
+```{r,child="assets/_footer-lab.Rmd"}
 ```
 
 ```{r,eval=FALSE,echo=FALSE}

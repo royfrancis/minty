@@ -4,4 +4,9 @@
 ^.git
 ^.github
 LICENSE
-
+vignettes/
+man/
+_pkgdown.yml
+index.md
+pkgdown/
+NEWS.md

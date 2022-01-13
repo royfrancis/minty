@@ -23,7 +23,7 @@ output:
 exclude: true
 count: false
 
-```{r,echo=FALSE,child="assets/header-slide.Rmd"}
+```{r,echo=FALSE,child="assets/_header-slide.Rmd"}
 ```
 
 <!-- ------------ Only edit title, subtitle & author above this ------------ -->
@@ -765,7 +765,7 @@ count: false
 
 # Thank you. Questions?
 
-```{r,echo=FALSE,child="assets/footer-slide.Rmd"}
+```{r,echo=FALSE,child="assets/_footer-slide.Rmd"}
 ```
 
 ```{r,include=FALSE,eval=FALSE}

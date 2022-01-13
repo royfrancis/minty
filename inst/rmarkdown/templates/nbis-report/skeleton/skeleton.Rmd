@@ -19,7 +19,7 @@ output:
     css: "assets/report.css"
 ---
 
-```{r,child="assets/header-lab.Rmd"}
+```{r,child="assets/_header-lab.Rmd"}
 ```
 
 <!-- ----------------------- Do not edit above this ----------------------- -->
@@ -255,7 +255,7 @@ Thank you for using NBIS.
 
 <!-- --------------------- Do not edit this and below ---------------------- -->
 
-```{r,child="assets/footer-lab.Rmd"}
+```{r,child="assets/_footer-lab.Rmd"}
 ```
 
 ```{r,eval=FALSE,echo=FALSE}

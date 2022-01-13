@@ -1,0 +1,33 @@
+title: minty
+url: https://github.com/royfrancis/minty
+template:
+  params:
+    bootswatch: flatly
+
+authors:
+  Roy Francis:
+    href: https://royfrancis.com
+
+navbar:
+  structure:
+    left:
+    - home
+    - news
+    right:
+    - github
+  components:
+    home:
+      text: Home
+      icon: fa-home
+      href: index.html
+    news:
+      text: Versions
+      icon: fa-history
+      href: news/index.html
+    github:
+      icon: fa-github fa-lg fas
+      href: https://github.com/royfrancis/minty
+
+home:
+  sidebar:
+    structure: [links, license, authors, dev]

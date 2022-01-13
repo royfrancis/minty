@@ -1,3 +1,9 @@
+minty 1.2.1
+===========
+- 13-Jan-2022
+- Pkgdown documentation added
+- Child Rmd assets prefixed with underscore
+
 minty 1.2.0
 ===========
 - 13-Dec-2021
