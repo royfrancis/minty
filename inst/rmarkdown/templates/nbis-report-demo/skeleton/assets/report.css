@@ -54,6 +54,10 @@
   --font-code: 'JetBrains Mono';
 }
 
+html {
+    overflow-y: scroll;
+}
+
 /* FONTS -------------------------------------------------------------------- */
 
 /* body font family */

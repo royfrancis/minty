@@ -30,7 +30,7 @@ install.packages("remotes")
 remotes::install_github("royfrancis/minty")
 ```
 
-Supporting packages should install automatically, otherwise install manually:
+No dependency packages are required to create the template. But the following dependencies are required to render the Rmd to HTML.
 
 ```
 install.packages(c("bookdown","captioner","knitr","markdown","rmarkdown","xaringan"),repos="https://cloud.r-project.org/")
@@ -50,11 +50,27 @@ After installing the package, restart R/Rstudio.
 
 ### Using a Template  
 
+#### Interactive
+
 The templates can be accessed from within RStudio as shown below. Use this as a starting point for your own document.
 
 `File > New File > R Markdown... > From Template > NBIS Report`
 
 This creates a new Rmd file and assets directory in the current working directory.
+
+#### Code
+
+The code below creates a directory named nbis-report with nbis-report.Rmd and assets directory inside.
+
+```
+mint(template="nbis-report",path="~/Desktop")
+```
+
+The destination name can be changed. The code below creates a directory named my-report with my-report.Rmd and assets directory inside.
+
+```
+mint(template="nbis-report",path="~/Desktop",name="my-report")
+```
 
 ### Rendering
 

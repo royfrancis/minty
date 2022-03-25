@@ -28,8 +28,8 @@ output:
 # CUSTOM VARIABLES
 
 # custom ggplot theme
-theme_report <- function (basesize=12,basefamily=NULL,colour="grey60") {
-  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+theme_report_h <- function (base_size=12,base_family=NULL,colour="grey60") {
+  theme_bw(base_size=base_size,base_family=base_family) %+replace%
     theme(
       panel.border=element_blank(),
       panel.grid.minor=element_blank(),
@@ -47,8 +47,8 @@ theme_report <- function (basesize=12,basefamily=NULL,colour="grey60") {
 }
 
 # custom ggplot theme
-theme_report_v <- function (basesize=12,basefamily=NULL,colour="grey60") {
-  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+theme_report_v <- function (base_size=12,base_family=NULL,colour="grey60") {
+  theme_bw(base_size=base_size,base_family=base_family) %+replace%
     theme(
       panel.border=element_blank(),
       panel.grid.minor=element_blank(),
@@ -66,8 +66,8 @@ theme_report_v <- function (basesize=12,basefamily=NULL,colour="grey60") {
 }
 
 # custom ggplot theme
-theme_simple <- function (basesize=12,basefamily=NULL,colour="grey60") {
-  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+theme_simple_h <- function (base_size=12,base_family=NULL,colour="grey60") {
+  theme_bw(base_size=base_size,base_family=base_family) %+replace%
     theme(
       panel.border=element_blank(),
       panel.grid=element_blank(),
@@ -85,8 +85,8 @@ theme_simple <- function (basesize=12,basefamily=NULL,colour="grey60") {
 }
 
 # custom ggplot theme
-theme_simple_v <- function (basesize=12,basefamily=NULL,colour="grey60") {
-  theme_bw(base_size=basesize,base_family=basefamily) %+replace%
+theme_simple_v <- function (base_size=12,base_family=NULL,colour="grey60") {
+  theme_bw(base_size=base_size,base_family=base_family) %+replace%
     theme(
       panel.border=element_blank(),
       panel.grid=element_blank(),

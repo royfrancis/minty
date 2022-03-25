@@ -1,3 +1,10 @@
+# minty 1.2.2
+
+- 25-Mar-2022
+- Added function "mint" to generate template
+- Import dependencies moved to suggests
+- Compressed slide cover images to reduce size
+
 # minty 1.2.1
 
 - 13-Jan-2022
