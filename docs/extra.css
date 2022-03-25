@@ -86,15 +86,13 @@ code {
 
 /* Buttons and Links -------------------------------------------------------- */
 
-a {
+a, a:hover, a:focus, a:visited {
   color: var(--color-primary);
 }
 
 a:hover {
-  color: var(--color-primary);
   text-decoration: underline;
 }
-
 
 /* table even shading colour */
 .even {

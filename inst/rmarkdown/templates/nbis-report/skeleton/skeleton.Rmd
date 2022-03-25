@@ -47,7 +47,7 @@ theme_report_h <- function (base_size=12,base_family=NULL,colour="grey60") {
 }
 
 # custom ggplot theme
-theme_report_v <- function (base_size=12,base_family=NULL,colour="grey60") {
+theme_report <- theme_report_v <- function (base_size=12,base_family=NULL,colour="grey60") {
   theme_bw(base_size=base_size,base_family=base_family) %+replace%
     theme(
       panel.border=element_blank(),
