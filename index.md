@@ -60,16 +60,10 @@ This creates a new Rmd file and assets directory in the current working director
 
 #### Code
 
-The code below creates a directory named nbis-report with nbis-report.Rmd and assets directory inside.
+The code below creates a file named report.Rmd along with the "assets" directory.
 
 ```
-mint(template="nbis-report",path="~/Desktop")
-```
-
-The destination name can be changed. The code below creates a directory named my-report with my-report.Rmd and assets directory inside.
-
-```
-mint(template="nbis-report",path="~/Desktop",name="my-report")
+rmarkdown::draft("report.Rmd", template="nbis-report", package="minty", edit=FALSE)
 ```
 
 ### Rendering

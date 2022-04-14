@@ -1,3 +1,8 @@
+# minty 1.2.3
+
+- 14-Apr-2022
+- Removed function `mint()`
+
 # minty 1.2.2
 
 - 25-Mar-2022
