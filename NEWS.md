@@ -1,3 +1,8 @@
+# minty 1.2.4
+
+- 27-Mar-2023
+- Updated project completion text
+
 # minty 1.2.3
 
 - 14-Apr-2022

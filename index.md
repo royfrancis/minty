@@ -4,6 +4,8 @@
 
 An R package with R Markdown templates for reports/documentation and slides.
 
+:exclamation: For quarto template, see [https://github.com/royfrancis/minty-quarto-website](https://github.com/royfrancis/minty-quarto-website).
+
 ## Templates
 
 ### nbis-report

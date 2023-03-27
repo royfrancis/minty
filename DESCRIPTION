@@ -1,7 +1,7 @@
 Package: minty
 Type: Package
 Title: Rmarkdown templates for report and slides
-Version: 1.2.3
+Version: 1.2.4
 Author: Roy Francis
 Authors@R: 
   person(given = "Roy",
@@ -23,4 +23,4 @@ Suggests:
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
