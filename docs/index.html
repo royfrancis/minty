@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">minty</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.4</span>
       </span>
     </div>
 
@@ -84,8 +84,9 @@
 <div class="page-header"><h1 id="minty-">minty <span><a href="https://github.com/royfrancis/minty"><img src="reference/figures/minty.png" style="height:40px;vertical-align:middle;"></a></span>
 <a class="anchor" aria-label="anchor" href="#minty-"></a>
 </h1></div>
-
+<p><a href="https://github.com/royfrancis/minty/actions?workflow=build"><img src="https://github.com/royfrancis/minty/workflows/build/badge.svg" alt="ci_badge"></a> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg" alt="lifecycle_badge"></a></p>
 <p>An R package with R Markdown templates for reports/documentation and slides.</p>
+<p><span class="emoji" data-emoji="exclamation">❗</span> For quarto template, see <a href="https://github.com/royfrancis/minty-quarto-website">https://github.com/royfrancis/minty-quarto-website</a>.</p>
 <div class="section level2">
 <h2 id="templates">Templates<a class="anchor" aria-label="anchor" href="#templates"></a>
 </h2>
@@ -119,17 +120,17 @@
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
 <p>This package can be installed from R/RStudio as follows:</p>
-<pre><code><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"royfrancis/minty"</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"royfrancis/minty"</span><span class="op">)</span></span></code></pre>
 <p>No dependency packages are required to create the template. But the following dependencies are required to render the Rmd to HTML.</p>
-<pre><code><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bookdown"</span>,<span class="st">"captioner"</span>,<span class="st">"knitr"</span>,<span class="st">"markdown"</span>,<span class="st">"rmarkdown"</span>,<span class="st">"xaringan"</span><span class="op">)</span>,repos<span class="op">=</span><span class="st">"https://cloud.r-project.org/"</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bookdown"</span>,<span class="st">"captioner"</span>,<span class="st">"knitr"</span>,<span class="st">"markdown"</span>,<span class="st">"rmarkdown"</span>,<span class="st">"xaringan"</span><span class="op">)</span>,repos<span class="op">=</span><span class="st">"https://cloud.r-project.org/"</span><span class="op">)</span></span></code></pre>
 <p>The standard templates are to be used for preparing your own material.</p>
 </div>
 <div class="section level3">
 <h3 id="demo-templates">Demo templates<a class="anchor" aria-label="anchor" href="#demo-templates"></a>
 </h3>
 <p>The ‘demo’ template contains detailed examples of RMarkdown syntax, features, formatting, alignment, graphics and interactive graphics. If you plan to <strong>render</strong> the demo template, note that it uses several extra R packages listed below. If you just want to just <strong>view</strong> the rendered demo output, see Templates link above.</p>
-<pre><code><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dplyr"</span>, <span class="st">"tidyr"</span>, <span class="st">"stringr"</span>, <span class="st">"kableExtra"</span>, <span class="st">"formattable"</span>, <span class="st">"DT"</span>, <span class="st">"highcharter"</span>, <span class="st">"plotly"</span>,<span class="st">"ggiraph"</span>, <span class="st">"dygraphs"</span>, <span class="st">"networkD3"</span>, <span class="st">"leaflet"</span>, <span class="st">"crosstalk"</span><span class="op">)</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dplyr"</span>, <span class="st">"tidyr"</span>, <span class="st">"stringr"</span>, <span class="st">"kableExtra"</span>, <span class="st">"formattable"</span>, <span class="st">"DT"</span>, <span class="st">"highcharter"</span>, <span class="st">"plotly"</span>,<span class="st">"ggiraph"</span>, <span class="st">"dygraphs"</span>, <span class="st">"networkD3"</span>, <span class="st">"leaflet"</span>, <span class="st">"crosstalk"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 <p>After installing the package, restart R/Rstudio.</p>
 </div>
 <div class="section level3">
@@ -146,14 +147,14 @@
 <h4 id="code">Code<a class="anchor" aria-label="anchor" href="#code"></a>
 </h4>
 <p>The code below creates a file named report.Rmd along with the “assets” directory.</p>
-<pre><code><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/draft.html" class="external-link">draft</a></span><span class="op">(</span><span class="st">"report.Rmd"</span>, template<span class="op">=</span><span class="st">"nbis-report"</span>, package<span class="op">=</span><span class="st">"minty"</span>, edit<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/draft.html" class="external-link">draft</a></span><span class="op">(</span><span class="st">"report.Rmd"</span>, template<span class="op">=</span><span class="st">"nbis-report"</span>, package<span class="op">=</span><span class="st">"minty"</span>, edit<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre>
 </div>
 </div>
 <div class="section level3">
 <h3 id="rendering">Rendering<a class="anchor" aria-label="anchor" href="#rendering"></a>
 </h3>
 <p>Save the changes, say for example; <strong>nbis-report.Rmd</strong>, the document can be rendered to HTML by running the below in the document directory.</p>
-<pre><code><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">render</a></span><span class="op">(</span><span class="st">"nbis-report.Rmd"</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">render</a></span><span class="op">(</span><span class="st">"nbis-report.Rmd"</span><span class="op">)</span></span></code></pre>
 <p>This will create an HTML file: <strong>nbis-report.html</strong>. This HTML file is intended to be self-contained without any dependencies or assets. This behaviour is governed by the YAML argument <code>self_contained: true</code>. Depending on what you add to the report, this may not always work. The xaringan slides are also set to self-contained by default.</p>
 </div>
 </div>
@@ -193,13 +194,7 @@
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://github.com/royfrancis/minty/actions?workflow=build"><img src="https://github.com/royfrancis/minty/workflows/build/badge.svg" alt="ci_badge"></a></li>
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg" alt="lifecycle_badge"></a></li>
-</ul>
-</div>
+
 
   </div>
 </div>
@@ -212,7 +207,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

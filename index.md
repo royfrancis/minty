@@ -1,4 +1,4 @@
-# minty  <span><a href="https://github.com/royfrancis/minty"><img src="reference/figures/minty.png" style="height:40px;vertical-align:middle;"></a></span>
+# minty  <span><a href="https://github.com/royfrancis/minty"><img src="man/figures/minty.png" style="height:40px;vertical-align:middle;"></a></span>
 
 [![ci_badge](https://github.com/royfrancis/minty/workflows/build/badge.svg)](https://github.com/royfrancis/minty/actions?workflow=build)  [![lifecycle_badge](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) 
 
@@ -10,14 +10,14 @@ An R package with R Markdown templates for reports/documentation and slides.
 
 ### nbis-report
 
-<img src="reference/figures/preview-report.png" style="width:600px;box-shadow: 1px 1px 6px #E0E0E0;">
+<img src="man/figures/preview-report.png" style="width:600px;box-shadow: 1px 1px 6px #E0E0E0;">
 
 - [Minimal preview](https://royfrancis.github.io/minty/nbis-report.html) (2.3MB)
 - [Full demo](https://royfrancis.github.io/minty/nbis-report-demo.html) (15MB)
 
 ### nbis-slide
 
-<img src="reference/figures/preview-slide.png" style="width:600px;box-shadow: 1px 1px 6px #E0E0E0;">
+<img src="man/figures/preview-slide.png" style="width:600px;box-shadow: 1px 1px 6px #E0E0E0;">
 
 - [Minimal preview](https://royfrancis.github.io/minty/nbis-slide.html) (3.2MB)
 - [Full demo](https://royfrancis.github.io/minty/nbis-slide-demo.html) (14MB)
@@ -80,7 +80,7 @@ This will create an HTML file: **nbis-report.html**. This HTML file is intended 
 
 ## Acknowledgements
 
-Credit to <span><a href="https://www.freepik.com"><img src="reference/figures/freepik.png" style="height:25px;vertical-align:middle;"></a></span> and <span><a href="https://www.flaticon.com/"><img src="reference/figures/flaticon.png" style="height:20px;vertical-align:middle;"></a></span> for illustrations/graphics.
+Credit to <span><a href="https://www.freepik.com"><img src="man/figures/freepik.png" style="height:25px;vertical-align:middle;"></a></span> and <span><a href="https://www.flaticon.com/"><img src="man/figures/flaticon.png" style="height:20px;vertical-align:middle;"></a></span> for illustrations/graphics.
 
 ## Contact
 
