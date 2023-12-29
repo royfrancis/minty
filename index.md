@@ -4,8 +4,6 @@
 
 An R package with R Markdown templates for reports/documentation and slides.
 
-:exclamation: For quarto template, see [https://github.com/royfrancis/minty-quarto-website](https://github.com/royfrancis/minty-quarto-website).
-
 ## Templates
 
 ### nbis-report
@@ -35,7 +33,7 @@ remotes::install_github("royfrancis/minty")
 No dependency packages are required to create the template. But the following dependencies are required to render the Rmd to HTML.
 
 ```
-install.packages(c("bookdown","captioner","knitr","markdown","rmarkdown","xaringan"),repos="https://cloud.r-project.org/")
+install.packages(c("bookdown","knitr","markdown","rmarkdown","xaringan"),repos="https://cloud.r-project.org/")
 ```
 
 The standard templates are to be used for preparing your own material. 

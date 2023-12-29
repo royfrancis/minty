@@ -10,7 +10,7 @@ on:
 jobs:
   linux:
     name: ubuntu
-    runs-on: "ubuntu-20.04"
+    runs-on: latest
     strategy:
       fail-fast: false
       matrix:

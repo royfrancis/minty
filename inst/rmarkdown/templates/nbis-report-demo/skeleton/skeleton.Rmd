@@ -483,8 +483,6 @@ $\begin{eqnarray} P(|X-\mu| > k) & = & P(|X-\mu|^2 > k^2)\\ & \leq & \frac{\math
 
 View of the data using paged tables. This is the default output for RMarkdown.  
 
-`r tc(name="table_paged",caption="_Table using paged tibble._")`  
-
 ```{r}
 iris[1:15,]
 ```
@@ -501,8 +499,6 @@ knitr::kable(head(iris), 'html')
 
 More advanced table using [`kableExtra`](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) and [`formattable`](https://cran.r-project.org/web/packages/formattable/vignettes/formattable-data-frame.html).
 
-`r tc(name="table_kableextra",caption="_Table using kableextra._")`  
-
 ```{r}
  iris[c(1:4,51:53,105:108),] %>%
   mutate(Sepal.Length=color_bar("lightsteelblue")(Sepal.Length)) %>%
@@ -518,8 +514,6 @@ More advanced table using [`kableExtra`](https://cran.r-project.org/web/packages
 ## DT  
 
 Interactive table using R package [`DT`](https://rstudio.github.io/DT/).
-
-`r tc(name="table_datatable",caption="_Table using datatable._")`  
 
 ```{r}
 iris %>%
@@ -541,8 +535,6 @@ legend(x=7,y=4.47,legend=c("setosa","versicolor","virginica"),
        col=c("coral","steelblue","forestgreen"),pch=19)}
 ```
 
-`r fc(name="static_base",caption="_Static plot using base plot._")`  
-
 ## ggplot2  
 
 R package [`ggplot2`](http://ggplot2.org/) is one of the most versatile and complete plotting solutions.  
@@ -554,8 +546,6 @@ iris %>%
   labs(x="Sepal Length",y="Sepal Width")+
   theme_report()
 ```
-
-`r fc(name="static_ggplot",caption="_Static plot using ggplot2._")`  
 
 # Interactive plots
 
@@ -575,8 +565,6 @@ h <- iris %>%
 htmltools::tagList(list(h))
 ```
 
-`r fc(name="interactive_highcharter",caption="_Interactive scatterplot using highcharter._")`  
-
 ## plotly  
 
 R package [`plotly`](https://plot.ly/r/) provides R binding around javascript plotting library [`plotly`](https://plot.ly).
@@ -587,8 +575,6 @@ p <- iris %>%
   add_markers()
 p
 ```
-
-`r fc(name="interactive_plotly",caption="_Interactive scatterplot using plotly._")`  
 
 ## ggplotly  
 
@@ -604,8 +590,6 @@ p <- iris %>%
 ggplotly(p,width=500,height=400)
 ```
 
-`r fc(name="interactive_ggplotly",caption="_Interactive scatterplot using ggplotly._")`  
-
 ## ggiraph  
 
 `ggiraph` is also an R package that can be used to convert a static ggplot2 object into an interactive plot.
@@ -620,8 +604,6 @@ tooltip_css <- "background-color:#e7eef3;font-family:Roboto;padding:10px;border-
 ggiraph(code=print(p),hover_css="cursor:pointer;stroke:black;fill-opacity:0.3",zoom_max=5,tooltip_extra_css=tooltip_css,tooltip_opacity=0.9)
 ```
 
-`r fc(name="interactive_ggiraph",caption="_Interactive scatterplot using ggiraph._")`  
-
 ## dygraphs  
 
 R package [`dygraphs`](http://rstudio.github.io/dygraphs/) provides R bindings for javascript library [dygraphs](http://dygraphs.com/) for time series data.  
@@ -631,8 +613,6 @@ lungDeaths <- cbind(ldeaths, mdeaths, fdeaths)
 dygraph(lungDeaths,main="Deaths from Lung Disease (UK)") %>%
   dyOptions(colors=c("#66C2A5","#FC8D62","#8DA0CB"))
 ```
-
-`r fc(name="interactive_dygraph",caption="_Interactive time series plot using dygraph._")`  
 
 ## Network graph  
 
@@ -645,8 +625,6 @@ forceNetwork(Links=MisLinks,Nodes=MisNodes,Source="source",
              Group="group",opacity=0.4)
 ```
 
-`r fc(name="interactive_network",caption="_Interactive network plot._")`  
-
 ## leaflet  
 
 R package [`leaflet`](https://rstudio.github.io/leaflet/) provides R bindings for javascript mapping library; [leafletjs](http://leafletjs.com/).  
@@ -658,8 +636,6 @@ leaflet(height=500,width=700) %>%
   addMarkers(lat=41.84201,lng=-89.485937,popup="CSC") %>%
   setView(lat=41.84201,lng=-89.485937,zoom=15)
 ```
-
-`r fc(name="interactive_map",caption="_Interactive map using leaflet._")`
 
 ## crosstalk  
 
@@ -675,8 +651,6 @@ py <- plot_ly(shared_quakes,x=~depth,y=~mag,size=~stations,height=300) %>%
 
 htmltools::div(lf,py)
 ```
-
-`r fc(name="interactive_crosstalk",caption="_Linking independent plots using crosstalk._")`
 
 # Alerts
 

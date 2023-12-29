@@ -1,3 +1,8 @@
+# minty 1.3
+
+- 29-Dec-2023
+- captioner removed
+
 # minty 1.2.4
 
 - 27-Mar-2023
